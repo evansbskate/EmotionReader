@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**EmotionReader** (formerly SentimentReader) - A real-time face and emotion detection web application powered by face-api.js and TensorFlow.js. Detects and analyzes human emotions through webcam with high accuracy and beautiful visualizations.
+**Sentiment Analyzer** - A real-time face and emotion detection web application powered by face-api.js and TensorFlow.js. Detects and analyzes human emotions through webcam with high accuracy and beautiful visualizations.
 
-**GitHub Repository**: https://github.com/yourusername/EmotionReader
+**GitHub Repository**: https://github.com/yourusername/SentimentAnalyzer
 
 ## Tech Stack
 
@@ -40,7 +40,7 @@ This project follows the **Monochromatic UI Style Guide** located at `mono-ui-st
 ## Project Structure
 
 ```
-SentimentReader/
+SentimentAnalyzer/
 ├── index.html          # Main HTML structure
 ├── styles.css          # CSS styles (follows mono-ui-style-guide)
 ├── app.js             # Core application logic

@@ -1,4 +1,4 @@
-# 🎭 EmotionReader
+# 🎭 Sentiment Analyzer
 
 A real-time face and emotion detection web application powered by face-api.js and TensorFlow.js. Detect and analyze human emotions through your webcam with high accuracy and beautiful visualizations.
 
@@ -21,8 +21,8 @@ A real-time face and emotion detection web application powered by face-api.js an
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/EmotionReader.git
-cd EmotionReader
+git clone https://github.com/yourusername/SentimentAnalyzer.git
+cd SentimentAnalyzer
 ```
 
 2. Open `index.html` in any modern web browser

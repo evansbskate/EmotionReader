@@ -1,4 +1,4 @@
-class EmotionReader {
+class SentimentAnalyzer {
     constructor() {
         this.video = document.getElementById('video');
         this.overlay = document.getElementById('overlay');
@@ -395,5 +395,5 @@ class EmotionReader {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new EmotionReader();
+    new SentimentAnalyzer();
 });
