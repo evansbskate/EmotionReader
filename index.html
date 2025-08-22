@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion Reader - Real-time Face & Emotion Detection</title>
+    <title>EmotionReader — Real-time Face & Emotion Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎭 Emotion Reader</h1>
+            <h1>EmotionReader</h1>
             <p class="subtitle">Real-time Face & Emotion Detection</p>
         </header>
 
@@ -25,16 +28,16 @@
             </div>
 
             <div class="controls">
-                <button id="startBtn" class="btn btn-primary">
-                    <span class="btn-icon">▶️</span>
+                <button id="startBtn" class="btn btn-primary" aria-label="Start camera">
+                    <span class="btn-icon" aria-hidden="true">▶</span>
                     Start Camera
                 </button>
-                <button id="stopBtn" class="btn btn-secondary" disabled>
-                    <span class="btn-icon">⏹️</span>
+                <button id="stopBtn" class="btn btn-secondary" disabled aria-label="Stop camera">
+                    <span class="btn-icon" aria-hidden="true">■</span>
                     Stop Camera
                 </button>
-                <button id="snapshotBtn" class="btn btn-accent" disabled>
-                    <span class="btn-icon">📸</span>
+                <button id="snapshotBtn" class="btn btn-accent" disabled aria-label="Take snapshot">
+                    <span class="btn-icon" aria-hidden="true">◉</span>
                     Take Snapshot
                 </button>
             </div>
@@ -43,55 +46,55 @@
                 <div class="stats">
                     <div class="stat-item">
                         <span class="stat-label">FPS:</span>
-                        <span id="fps" class="stat-value">0</span>
+                        <span id="fps" class="stat-value" aria-live="polite">0</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-label">Faces Detected:</span>
-                        <span id="faceCount" class="stat-value">0</span>
+                        <span class="stat-label">Faces:</span>
+                        <span id="faceCount" class="stat-value" aria-live="polite">0</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-label">Model:</span>
-                        <select id="modelSelect" class="model-select">
+                        <label for="modelSelect" class="stat-label">Model:</label>
+                        <select id="modelSelect" class="model-select" aria-label="Detection model">
                             <option value="tiny">Fast (Tiny)</option>
                             <option value="ssd" selected>Balanced (SSD)</option>
                         </select>
                     </div>
                 </div>
 
-                <div id="emotionDisplay" class="emotion-display hidden">
+                <div id="emotionDisplay" class="emotion-display hidden" role="region" aria-label="Emotion analysis">
                     <h3>Detected Emotions</h3>
-                    <div id="emotionBars" class="emotion-bars"></div>
-                    <div id="dominantEmotion" class="dominant-emotion">
+                    <div id="emotionBars" class="emotion-bars" role="list"></div>
+                    <div id="dominantEmotion" class="dominant-emotion" aria-live="polite">
                         <span class="emotion-label">Dominant:</span>
-                        <span id="emotionName" class="emotion-name">-</span>
+                        <span id="emotionName" class="emotion-name">—</span>
                         <span id="emotionConfidence" class="emotion-confidence">0%</span>
                     </div>
                 </div>
             </div>
 
-            <div id="snapshotContainer" class="snapshot-container hidden">
-                <h3>📸 Snapshot Analysis</h3>
-                <canvas id="snapshotCanvas"></canvas>
-                <div id="snapshotEmotions" class="snapshot-emotions"></div>
-                <button id="closeSnapshot" class="btn btn-secondary">Close</button>
+            <div id="snapshotContainer" class="snapshot-container hidden" role="dialog" aria-labelledby="snapshotTitle" aria-modal="true">
+                <h3 id="snapshotTitle">Snapshot Analysis</h3>
+                <canvas id="snapshotCanvas" aria-label="Captured snapshot"></canvas>
+                <div id="snapshotEmotions" class="snapshot-emotions" role="list"></div>
+                <button id="closeSnapshot" class="btn btn-secondary" aria-label="Close snapshot">Close</button>
             </div>
         </main>
 
         <footer>
-            <p>Built with face-api.js & TensorFlow.js | 
-            <span id="status" class="status-indicator">
-                <span class="status-dot"></span>
+            <p>Built with face-api.js & TensorFlow.js <span aria-hidden="true">·</span> 
+            <span id="status" class="status-indicator" role="status" aria-live="polite">
+                <span class="status-dot" aria-hidden="true"></span>
                 <span id="statusText">Ready</span>
             </span>
             </p>
         </footer>
     </div>
 
-    <div id="errorModal" class="modal hidden">
+    <div id="errorModal" class="modal hidden" role="alertdialog" aria-labelledby="errorTitle" aria-describedby="errorMessage" aria-modal="true">
         <div class="modal-content">
-            <h3>⚠️ Error</h3>
-            <p id="errorMessage"></p>
-            <button id="errorClose" class="btn btn-primary">OK</button>
+            <h3 id="errorTitle">Error</h3>
+            <p id="errorMessage" role="alert"></p>
+            <button id="errorClose" class="btn btn-primary" aria-label="Close error dialog">OK</button>
         </div>
     </div>
 
